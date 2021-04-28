@@ -40,6 +40,7 @@ function initMap() {
             icon: image,
             map: map,
             title: key,
+            label: key,
         })
         content = "Beach is good for:";
         if( value['swimming']){
@@ -50,6 +51,7 @@ function initMap() {
         });
         marker.addListener("click", () => {
             infowindow.open(map, marker);
+            $(".info").text(value['description']);
         });
     }
 }
