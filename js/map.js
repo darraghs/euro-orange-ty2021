@@ -23,6 +23,12 @@ function initMap() {
         },
     });
 
+    map.addListener("center_changed", () => {
+        $("#info").text("");
+        $("#title").text("");
+      });
+
+
     const image = {
         url:
             "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
@@ -51,6 +57,7 @@ function initMap() {
         });
         marker.addListener("click", () => {
             infowindow.open(map, marker);
+            $('#title').html("<h3>"+key+"</h3>");
             $("#info").text(value['description']);
         });
     }
