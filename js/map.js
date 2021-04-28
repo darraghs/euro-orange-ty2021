@@ -51,7 +51,7 @@ function initMap() {
         });
         marker.addListener("click", () => {
             infowindow.open(map, marker);
-            $(".info").text(value['description']);
+            $("#info").text(value['description']);
         });
     }
 }
