@@ -69,3 +69,25 @@ function initMap() {
         });
     }
 }
+
+
+function getTemp(lat, lng){
+
+    $.ajax({
+        type: "POST",
+        url: "https://api.windy.com/api/point-forecast/v2",
+        data: {
+            "lat": lat,
+            "lon": lng,
+            "model": "gfs",
+            "parameters": ["temp"],
+            "levels": ["surface"],
+            "key": "8GHYJFsoI0V1U5yw2JayglxDoN8fW2KK"
+        }
+      })
+        .done(function( data ) {
+          if ( console && console.log ) {
+            console.log( "Sample of data:", data.slice( 0, 100 ) );
+          }
+        });
+}
