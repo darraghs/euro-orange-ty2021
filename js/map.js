@@ -77,8 +77,12 @@ function getTemp(lat, lng){
     jQuery.get("https://api.worldweatheronline.com/premium/v1/marine.ashx?key=2ab1ba821e484429b8785133212904&format=json&q="+lat+","+lng+"&num_of_days=1", function(data, status){
         var response = data;
         var maxTemp = response['data']['weather'][0]["maxtempC"];
-        var am6Swell = response['data']['weather']['hourly'][2]['swellHeight_m'];
-        var icon = "";
-        $('#title').html("<p>Max Temp"+maxTemp+"</p> <p>6am Swell: "+am6Swell+"</p>><img src="+icon+">");
-      });
+        var am6Swell = response['data']['weather'][0]['hourly'][2]['swellHeight_m'];
+        var am6Icon = response['data']['weather']['hourly'][2]['swellIconUrl']['value'];
+        var am9Swell = response['data']['weather'][0]['hourly'][3]['swellHeight_m'];
+        var pm12Swell = response['data']['weather'][0]['hourly'][4]['swellHeight_m'];
+        var pm3Swell = response['data']['weather'][0]['hourly'][5]['swellHeight_m'];
+        var pm6Swell = response['data']['weather'][0]['hourly'][6]['swellHeight_m'];
+        var pm9Swell =response['data']['weather'][0]['hourly'][7]['swellHeight_m'];
+        $('#title').html("<p>Max Temp"+maxTemp+"</p> <p>6am Swell: "+am6Swell+"</p> <p>9am Swell: "+am9Swell+"</p> <p>12pm Swell: "+pm12Swell+"</p> <p>3pm Swell: "+pm3Swell+"</p> <p>6pm Swell: "+pm6Swell+"</p> <p>9pm Swell: "+pm9Swell+"</p>><img src="
 }
