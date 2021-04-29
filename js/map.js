@@ -66,6 +66,7 @@ function initMap() {
             infowindow.open(map, marker);
             $('#title').html("<h3>"+key+"</h3>");
             $("#info").text(value['description']);
+            getTemp(value['location'][lat], value['location'][lng]);
         });
     }
 }
@@ -73,21 +74,9 @@ function initMap() {
 
 function getTemp(lat, lng){
 
-    $.ajax({
-        type: "POST",
-        url: "https://api.windy.com/api/point-forecast/v2",
-        data: {
-            "lat": lat,
-            "lon": lng,
-            "model": "gfs",
-            "parameters": ["temp"],
-            "levels": ["surface"],
-            "key": "8GHYJFsoI0V1U5yw2JayglxDoN8fW2KK"
-        }
-      })
-        .done(function( data ) {
-          if ( console && console.log ) {
-            console.log( "Sample of data:", data.slice( 0, 100 ) );
-          }
-        });
+    jQuery.get("https://api.worldweatheronline.com/premium/v1/marine.ashx?key=2ab1ba821e484429b8785133212904&format=json&q="+lat+","+lng+"&num_of_days=1", function(data, status){
+        var response = data;
+        var weather = response['data']['weather'];
+        $('#title').html("<h3>"+weather+"</h3>");
+      });
 }
