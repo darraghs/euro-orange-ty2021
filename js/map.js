@@ -162,10 +162,9 @@ function getTemp(lat, lng, cafes) {
         var pm3Swell = response['data']['weather'][0]['hourly'][5]['swellHeight_m'];
         var pm6Swell = response['data']['weather'][0]['hourly'][6]['swellHeight_m'];
         var pm9Swell =response['data']['weather'][0]['hourly'][7]['swellHeight_m'];
-        $('#title').html("<p>Max Temp"+maxTemp+"</p> <p>6am Swell: "+am6Swell+"</p> <p>9am Swell: "+am9Swell+"</p> <p>12pm Swell: "+pm12Swell+"</p> <p>3pm Swell: "+pm3Swell+"</p> <p>6pm Swell: "+pm6Swell+"</p> <p>9pm Swell: "+pm9Swell+"</p>><img src="
         var icon = "";
         var newContent = $('#title').html();
-        newContent = newContent + "<p>Max Temp" + maxTemp + "</p> <p>6am Swell: " + am6Swell + "</p><img src=\"" + icon+"\"></p>";
+        newContent = newContent + "<p>Max Temp" + maxTemp + "</p> <p>Max Temp"+maxTemp+"</p> <p>6am Swell: "+am6Swell+"</p> <p>9am Swell: "+am9Swell+"</p> <p>12pm Swell: "+pm12Swell+"</p> <p>3pm Swell: "+pm3Swell+"</p><img src=\"" + icon+"\"></p>";
         newContent = newContent + "<p>Cafes:"+cafes+"</p>";
         $('#title').html(newContent);
     });
