@@ -163,29 +163,29 @@ function getTemp(lat, lng, cafes) {
         <p><b>Min Temp</b>: ${response['data']['weather'][0]["mintempC"]}</p>
         <p><b>Max Temp</b>: ${response['data']['weather'][0]["maxtempC"]}</p>
         <table>
-            <th>
-                <td>
+            <tr>
+                <th>
 
-                </td>
-                 <td>
+                </th>
+                 <th>
                     6am
-                </td>
-                <td>
+                </th>
+                <th>
                     9am
-                </td>
-                <td>
+                </th>
+                <th>
                     12pm
-                </td>
-                <td>
+                </th>
+                <th>
                     3pm
-                </td>
-                <td>
+                </th>
+                <th>
                     6pm
-                </td>
-                <td>
+                </th>
+                <th>
                     9am
-                </td>
-            </th>
+                </th>
+            </tr>
             <tr>
                 <td>
                     <b>Swell Height (m)</b>
@@ -327,7 +327,7 @@ function getTemp(lat, lng, cafes) {
             </tr>
             <tr>
                 <td>
-                    Precipitation (mm)
+                    <b>Precipitation (mm)</b>
                 </td>
 
                 <td>
@@ -351,7 +351,7 @@ function getTemp(lat, lng, cafes) {
             </tr>
             <tr>
                 <td>
-                    Weather
+                    <b>Weather</b>
                 </td>
                 <td>
                     <img src="${response['data']['weather'][0]['hourly'][2]['weatherIconUrl'][0]['value']}"/>
