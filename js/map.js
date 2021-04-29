@@ -157,11 +157,26 @@ function getTemp(lat, lng, cafes) {
 
         var newContent = $('#title').html();
         newContent = newContent + `
-        <p><b>Sunrise</b>: ${response['data']['weather'][0]["astronomy"][0]['sunrise']}</p>
-        <p><b>Sunset</b>: ${response['data']['weather'][0]["astronomy"][0]['sunset']}</p>
-        <p><b>Sunrise</b>: ${response['data']['weather'][0]["astronomy"][0]['sunrise']}</p>
-        <p><b>Min Temp</b>: ${response['data']['weather'][0]["mintempC"]}</p>
-        <p><b>Max Temp</b>: ${response['data']['weather'][0]["maxtempC"]}</p>
+        <table>
+            <tr>
+                <td><b>Nearby Cafes</b></td>
+                <td>${cafes}</td>
+            </tr>
+       
+            <tr>
+                <td><b>Sunrise</b>:</td>
+                <td> ${response['data']['weather'][0]["astronomy"][0]['sunrise']}</td>
+            </tr>
+            <tr><td><b>Sunset</b>:</td>
+                <td> ${response['data']['weather'][0]["astronomy"][0]['sunset']}</td>
+            </tr>
+            <tr><td><b>Min Temp</b>: </td>
+                <td>${response['data']['weather'][0]["mintempC"]}</td>
+            </tr>
+            <tr><td><b>Max Temp</b>:</td>
+                <td>${response['data']['weather'][0]["maxtempC"]}</td>
+            </tr>
+        </table>
         <table>
             <tr>
                 <th>
@@ -183,7 +198,7 @@ function getTemp(lat, lng, cafes) {
                     6pm
                 </th>
                 <th>
-                    9am
+                    9pm
                 </th>
             </tr>
             <tr>
@@ -375,7 +390,6 @@ function getTemp(lat, lng, cafes) {
         </table>
         `;
        
-        newContent = newContent + "<p>Cafes:"+cafes+"</p>";
         $('#title').html(newContent);
     });
 
