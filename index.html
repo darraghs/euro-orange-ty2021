@@ -3,13 +3,13 @@
 
 <head>
     <title>Euro-Orange TY 2021</title>
-    
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="css/map.css"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
-    
+    <link rel="stylesheet" href="css/map.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -21,80 +21,75 @@
 <body>
 
 
-<div class="jumbotron text-center" style="margin-bottom:0">
-    <h1>Euro-Orange Transition Year 2021</h1>
-</div>
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-
-    <div class="collapse navbar-collapse" id="collapsibleNavbar">
-        <div class="topnav">
-            <a class="active" href="#home">Home</a>
-            <a href="#">Search</a>
-            <a href="#">Info</a>
-            <a href="#">Map</a>
-            <a href="#">Cafe's Near By</a>
-            <a href="#">Wave Heights</a>
-        </div>
+    <div class="jumbotron text-center" style="margin-bottom:0">
+        <h1>Euro-Orange Transition Year 2021</h1>
     </div>
-</nav>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 
-<div class="wrapper" style="padding-left:30px">
-    <div class="row">
-        <div class="col-2">
-            <h4>Beaches</h4>
-            <div id="sidebar" style="width:25%">
-                <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:25%">
-                    <div id="beaches">
-                        <a href="#">Strandhill</a>
-                        <a href="#">Mullagmore</a>
-                        <a href="#">Rosses Point</a>
-                        <a href="#">Easky</a>
-                        <a href="#">Streedagh Strand</a>
-                        <a href="#">Dunmoran Strand</a>
-                    </div>
-                </div>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <div class="topnav">
+                <a class="active" href="#home">Home</a>
+                <a href="#">Search</a>
+                <a href="#">Info</a>
+                <a href="#">Map</a>
+                <a href="#">Cafe's Near By</a>
+                <a href="#">Wave Heights</a>
             </div>
         </div>
-        <div class="col-10">
-            <div class="row">
-                <div class="col-7">
-                    <div id="map"></div>
-                </div>
-                <div class="col-5">
-                    <h4>Title</h4>
-                    <div id="title"></div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-7"  style="min-height: 200px;">
-                    <h4>Info</h4>
-                    <div id="info">
+    </nav>
 
-                    </div>
-                </div>
-                <div class="col-5"  style="min-height: 200px;">
-                    <h4>Contact Us</h4>
-                    <div id="contactUs">
-                        <h1>Contact us</h1>
-                        <h4>Our email address is: beachesinsligo@gmail.com</h4>
-                        <h4>Our phone number is: 087 3827 492</h4>
+    <div class="wrapper" style="padding-left:30px">
+        <div class="row">
+            <div class="col-2">
+                <h4>Beaches</h4>
+                <div id="sidebar" style="width:25%">
+                    <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:25%">
+                        <div id="beaches">
+                            <a href="#">Strandhill</a>
+                            <a href="#">Mullagmore</a>
+                            <a href="#">Rosses Point</a>
+                            <a href="#">Easky</a>
+                            <a href="#">Streedagh Strand</a>
+                            <a href="#">Dunmoran Strand</a>
+                        </div>
                     </div>
                 </div>
             </div>
+            <div class="col-10">
+                <div class="row">
+                    <div class="col-7">
+                        <div id="map"></div>
+                    </div>
+                    <div class="col-5">
+                        <div id="title"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-7" style="min-height: 200px;">
+                        <div id="info">
+
+                        </div>
+                    </div>
+                    <div class="col-5" style="min-height: 200px;">
+                        <h4>Contact Us</h4>
+                        <div id="contactUs">
+                            <h1>Contact us</h1>
+                            <h4>Our email address is: beachesinsligo@gmail.com</h4>
+                            <h4>Our phone number is: 087 3827 492</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
     </div>
 
-</div>
 
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbjrhUg6fm8QqGEPOmbvCQTtAisk7EjMc&callback=initMap&libraries=&v=weekly" async></script>
 
-<!-- Async script executes immediately and must be after any DOM elements used in callback. -->
-<script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbjrhUg6fm8QqGEPOmbvCQTtAisk7EjMc&callback=initMap&libraries=&v=weekly"
-        async
-></script>
-
-        <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
 </body>
 
 </html>
