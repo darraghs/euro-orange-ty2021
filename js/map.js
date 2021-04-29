@@ -66,7 +66,7 @@ function initMap() {
             infowindow.open(map, marker);
             $('#title').html("<h3>"+key+"</h3>");
             $("#info").text(value['description']);
-            getTemp(value['location'][lat], value['location'][lng]);
+            getTemp(value['location']['lat'], value['location']['lng']);
         });
     }
 }
