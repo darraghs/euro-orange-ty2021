@@ -161,7 +161,7 @@ function getTemp(lat, lng, cafes) {
 
         var sunset = response['data']['weather'][0]["astronomy"][0]['sunset'];
      
-        var am6Swell = ;
+
         var am6icon = response['data']['weather'][0]['hourly'][2]['weatherIconUrl'][0]['value'];
         var am9Swell = response['data']['weather'][0]['hourly'][3]['swellHeight_m'];
         var am9icon = response['data']['weather'][0]['hourly'][3]['weatherIconUrl'][0]['value'];
