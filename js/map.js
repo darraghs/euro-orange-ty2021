@@ -156,8 +156,12 @@ function getTemp(lat, lng, cafes) {
         var response = data;
         var maxTemp = response['data']['weather'][0]["maxtempC"];
         var minTemp = response['data']['weather'][0]["mintempC"];
+
+        var sunrise = response['data']['weather'][0]["astronomy"][0]['sunrise'];
+
+        var sunset = response['data']['weather'][0]["astronomy"][0]['sunset'];
      
-        var am6Swell = response['data']['weather'][0]['hourly'][2]['swellHeight_m'];
+        var am6Swell = ;
         var am6icon = response['data']['weather'][0]['hourly'][2]['weatherIconUrl'][0]['value'];
         var am9Swell = response['data']['weather'][0]['hourly'][3]['swellHeight_m'];
         var am9icon = response['data']['weather'][0]['hourly'][3]['weatherIconUrl'][0]['value'];
@@ -171,21 +175,92 @@ function getTemp(lat, lng, cafes) {
         var pm9icon = response['data']['weather'][0]['hourly'][7]['weatherIconUrl'][0]['value'];
         
         var newContent = $('#title').html();
-        newContent = newContent + 
-        "<p>Min Temp " + minTemp + "</p>"+
-        "<p>Max Temp " + maxTemp + "</p>"+
-        "<p>6am Swell: "+am6Swell+"m</p>"+
-        "<p>6am Weather <img src=\"" + am6icon+"\"></p>"+
-        "<p>9am Swell: "+am9Swell+"m</p>"+
-        "<p>9am Weather <img src=\"" + am9icon+"\"></p>"+
-        " <p>12pm Swell: "+pm12Swell+"m</p>"+
-        "<p>12pm Weather <img src=\"" + pm12icon+"\"></p>"+
-        " <p>3pm Swell: "+pm3Swell+"m</p>"
-        "<p>3pm Weather <img src=\"" + pm3icon+"\"></p>"+
-        " <p>6pm Swell: "+pm6Swell+"m</p>"
-        "<p>6pm Weather <img src=\"" + pm6icon+"\"></p>"+
-        " <p>9pm Swell: "+pm9Swell+"m</p>"+
-        "<p>9pm Weather <img src=\"" + pm9icon+"\"></p>";
+        newContent = newContent + `
+        <table>
+            <th>
+                <td>
+
+                </td>
+                 <td>
+                    6am
+                </td>
+                <td>
+                    9am
+                </td>
+                <td>
+                    12pm
+                </td>
+                <td>
+                    3pm
+                </td>
+                <td>
+                    6pm
+                </td>
+                <td>
+                    9am
+                </td>
+            </th>
+            <tr>
+                <td>
+                    Swell Height
+                </td>
+                <td>
+                    ${response['data']['weather'][0]['hourly'][2]['swellHeight_m']}
+                </td>
+                <td>
+                    ${response['data']['weather'][0]['hourly'][3]['swellHeight_m']}
+                </td>
+                <td>
+                    ${response['data']['weather'][0]['hourly'][4]['swellHeight_m']}
+                </td>
+                <td>
+                    ${response['data']['weather'][0]['hourly'][5]['swellHeight_m']}
+                </td>
+                <td>
+                    ${response['data']['weather'][0]['hourly'][6]['swellHeight_m']}
+                </td>
+                <td>
+                    ${response['data']['weather'][0]['hourly'][7]['swellHeight_m']}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Swell direction
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Swell period
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Water Temp
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Wind Speed
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Wind Direction
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Precipitation
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Weather
+                </td>
+            </tr>
+        </table>
+        `;
+       
         newContent = newContent + "<p>Cafes:"+cafes+"</p>";
         $('#title').html(newContent);
     });
