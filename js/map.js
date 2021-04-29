@@ -77,6 +77,8 @@ function getTemp(lat, lng){
     jQuery.get("https://api.worldweatheronline.com/premium/v1/marine.ashx?key=2ab1ba821e484429b8785133212904&format=json&q="+lat+","+lng+"&num_of_days=1", function(data, status){
         var response = data;
         var maxTemp = response['data']['weather'][0]["maxtempC"];
-        $('#title').html("<h3>Max Temp"+maxTemp+"</h3>");
+        var am6Swell = response['data']['weather']['hourly'][2]['swellHeight_m'];
+        var icon = "";
+        $('#title').html("<p>Max Temp"+maxTemp+"</p> <p>6am Swell: "+am6Swell+"</p>><img src="+icon+">");
       });
 }
