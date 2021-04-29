@@ -83,7 +83,7 @@ function getTemp(lat, lng) {
         var response = data;
         var maxTemp = response['data']['weather'][0]["maxtempC"];
         var am6Swell = response['data']['weather'][0]['hourly'][2]['swellHeight_m'];
-        var icon = "";
-        $('#title').html("<p>Max Temp" + maxTemp + "</p> <p>6am Swell: " + am6Swell + "</p>><img src=" + icon + ">");
+        //var icon = "";
+        $('#title').html($('#title').html()+"<p>Max Temp" + maxTemp + "</p> <p>6am Swell: " + am6Swell + "</p>><img src=" + icon + );
     });
 }
