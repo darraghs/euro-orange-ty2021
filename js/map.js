@@ -154,28 +154,14 @@ function getTemp(lat, lng, cafes) {
 
     jQuery.get("https://api.worldweatheronline.com/premium/v1/marine.ashx?key=2ab1ba821e484429b8785133212904&format=json&q=" + lat + "," + lng + "&num_of_days=1", function(data, status) {
         var response = data;
-        var maxTemp = response['data']['weather'][0]["maxtempC"];
-        var minTemp = response['data']['weather'][0]["mintempC"];
 
-        var sunrise = response['data']['weather'][0]["astronomy"][0]['sunrise'];
-
-        var sunset = response['data']['weather'][0]["astronomy"][0]['sunset'];
-     
-
-        var am6icon = response['data']['weather'][0]['hourly'][2]['weatherIconUrl'][0]['value'];
-        var am9Swell = response['data']['weather'][0]['hourly'][3]['swellHeight_m'];
-        var am9icon = response['data']['weather'][0]['hourly'][3]['weatherIconUrl'][0]['value'];
-        var pm12Swell = response['data']['weather'][0]['hourly'][4]['swellHeight_m'];
-        var pm12icon = response['data']['weather'][0]['hourly'][4]['weatherIconUrl'][0]['value'];
-        var pm3Swell = response['data']['weather'][0]['hourly'][5]['swellHeight_m'];
-        var pm3icon = response['data']['weather'][0]['hourly'][5]['weatherIconUrl'][0]['value'];
-        var pm6Swell = response['data']['weather'][0]['hourly'][6]['swellHeight_m'];
-        var pm6icon = response['data']['weather'][0]['hourly'][6]['weatherIconUrl'][0]['value'];
-        var pm9Swell =response['data']['weather'][0]['hourly'][7]['swellHeight_m'];
-        var pm9icon = response['data']['weather'][0]['hourly'][7]['weatherIconUrl'][0]['value'];
-        
         var newContent = $('#title').html();
         newContent = newContent + `
+        <p><b>Sunrise</b>: ${response['data']['weather'][0]["astronomy"][0]['sunrise']}</p>
+        <p><b>Sunset</b>: ${response['data']['weather'][0]["astronomy"][0]['sunset']}</p>
+        <p><b>Sunrise</b>: ${response['data']['weather'][0]["astronomy"][0]['sunrise']}</p>
+        <p><b>Min Temp</b>: ${response['data']['weather'][0]["mintempC"]}</p>
+        <p><b>Max Temp</b>: ${response['data']['weather'][0]["maxtempC"]}</p>
         <table>
             <th>
                 <td>
@@ -202,7 +188,7 @@ function getTemp(lat, lng, cafes) {
             </th>
             <tr>
                 <td>
-                    Swell Height
+                    <b>Swell Height (m)</b>
                 </td>
                 <td>
                     ${response['data']['weather'][0]['hourly'][2]['swellHeight_m']}
@@ -225,37 +211,165 @@ function getTemp(lat, lng, cafes) {
             </tr>
             <tr>
                 <td>
-                    Swell direction
+                    <b>Swell direction</b>
+                </td>
+                <td>
+                    ${response['data']['weather'][0]['hourly'][2]['swellDir16Point']}
+                </td>
+                <td>
+                    ${response['data']['weather'][0]['hourly'][3]['swellDir16Point']}
+                </td>
+                <td>
+                    ${response['data']['weather'][0]['hourly'][4]['swellDir16Point']}
+                </td>
+                <td>
+                    ${response['data']['weather'][0]['hourly'][5]['swellDir16Point']}
+                </td>
+                <td>
+                    ${response['data']['weather'][0]['hourly'][6]['swellDir16Point']}
+                </td>
+                <td>
+                    ${response['data']['weather'][0]['hourly'][7]['swellDir16Point']}
                 </td>
             </tr>
             <tr>
                 <td>
-                    Swell period
+                    <b>Swell period (secs)</b>
+                </td>
+                <td>
+                    ${response['data']['weather'][0]['hourly'][2]['swellPeriod_secs']}
+                </td>
+                <td>
+                    ${response['data']['weather'][0]['hourly'][3]['swellPeriod_secs']}
+                </td>
+                <td>
+                    ${response['data']['weather'][0]['hourly'][4]['swellPeriod_secs']}
+                </td>
+                <td>
+                    ${response['data']['weather'][0]['hourly'][5]['swellPeriod_secs']}
+                </td>
+                <td>
+                    ${response['data']['weather'][0]['hourly'][6]['swellPeriod_secs']}
+                </td>
+                <td>
+                    ${response['data']['weather'][0]['hourly'][7]['swellPeriod_secs']}
                 </td>
             </tr>
             <tr>
                 <td>
-                    Water Temp
+                   <b> Water Temp (oC)</b>
+                    </td>
+                    <td>
+                        ${response['data']['weather'][0]['hourly'][2]['waterTemp_C']}
+                    </td>
+                    <td>
+                        ${response['data']['weather'][0]['hourly'][3]['waterTemp_C']}
+                    </td>
+                    <td>
+                        ${response['data']['weather'][0]['hourly'][4]['waterTemp_C']}
+                    </td>
+                    <td>
+                        ${response['data']['weather'][0]['hourly'][5]['waterTemp_C']}
+                    </td>
+                    <td>
+                        ${response['data']['weather'][0]['hourly'][6]['waterTemp_C']}
+                    </td>
+                    <td>
+                        ${response['data']['weather'][0]['hourly'][7]['waterTemp_C']}
+                    </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Wind Speed (kph)</b>
+                </td>
+                <td>
+                 ${response['data']['weather'][0]['hourly'][2]['windspeedKmph']}
+                </td>
+                <td>
+                    ${response['data']['weather'][0]['hourly'][3]['windspeedKmph']}
+                </td>
+                <td>
+                    ${response['data']['weather'][0]['hourly'][4]['windspeedKmph']}
+                </td>
+                <td>
+                    ${response['data']['weather'][0]['hourly'][5]['windspeedKmph']}
+                </td>
+                <td>
+                    ${response['data']['weather'][0]['hourly'][6]['windspeedKmph']}
+                </td>
+                <td>
+                    ${response['data']['weather'][0]['hourly'][7]['windspeedKmph']}
                 </td>
             </tr>
             <tr>
                 <td>
-                    Wind Speed
+                    <b>Wind Direction</b>
+                </td>
+
+                <td>
+                    ${response['data']['weather'][0]['hourly'][2]['winddir16Point']}
+                </td>
+                <td>
+                    ${response['data']['weather'][0]['hourly'][3]['winddir16Point']}
+                </td>
+                <td>
+                    ${response['data']['weather'][0]['hourly'][4]['winddir16Point']}
+                </td>
+                <td>
+                    ${response['data']['weather'][0]['hourly'][5]['winddir16Point']}
+                </td>
+                <td>
+                    ${response['data']['weather'][0]['hourly'][6]['winddir16Point']}
+                </td>
+                <td>
+                    ${response['data']['weather'][0]['hourly'][7]['winddir16Point']}
                 </td>
             </tr>
             <tr>
                 <td>
-                    Wind Direction
+                    Precipitation (mm)
                 </td>
-            </tr>
-            <tr>
+
                 <td>
-                    Precipitation
+                    ${response['data']['weather'][0]['hourly'][2]['precipMM']}
+                </td>
+                <td>
+                    ${response['data']['weather'][0]['hourly'][3]['precipMM']}
+                </td>
+                <td>
+                    ${response['data']['weather'][0]['hourly'][4]['precipMM']}
+                </td>
+                <td>
+                    ${response['data']['weather'][0]['hourly'][5]['precipMM']}
+                </td>
+                <td>
+                    ${response['data']['weather'][0]['hourly'][6]['precipMM']}
+                </td>
+                <td>
+                    ${response['data']['weather'][0]['hourly'][7]['precipMM']}
                 </td>
             </tr>
             <tr>
                 <td>
                     Weather
+                </td>
+                <td>
+                    <img src="${response['data']['weather'][0]['hourly'][2]['weatherIconUrl'][0]['value']}"/>
+                </td>
+                <td>
+                    <img src="${response['data']['weather'][0]['hourly'][3]['weatherIconUrl'][0]['value']}"/>
+                </td>
+                <td>
+                    <img src="${response['data']['weather'][0]['hourly'][4]['weatherIconUrl'][0]['value']}"/>
+                </td>
+                <td>
+                    <img src="${response['data']['weather'][0]['hourly'][5]['weatherIconUrl'][0]['value']}"/>
+                </td>
+                <td>
+                    <img src="${response['data']['weather'][0]['hourly'][6]['weatherIconUrl'][0]['value']}"/>
+                </td>
+                <td>
+                    <img src="${response['data']['weather'][0]['hourly'][7]['weatherIconUrl'][0]['value']}"/>
                 </td>
             </tr>
         </table>
