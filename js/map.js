@@ -156,7 +156,7 @@ function getTemp(lat, lng, cafes) {
         var response = data;
         var maxTemp = response['data']['weather'][0]["maxtempC"];
         var am6Swell = response['data']['weather'][0]['hourly'][2]['swellHeight_m'];
-        var am6Icon = response['data']['weather'][0]['hourly'][2]['swellIconUrl']['value'];
+        var am6Icon = ""; // response['data']['weather'][0]['hourly'][2]['swellIconUrl']['value'];
         var am9Swell = response['data']['weather'][0]['hourly'][3]['swellHeight_m'];
         var pm12Swell = response['data']['weather'][0]['hourly'][4]['swellHeight_m'];
         var pm3Swell = response['data']['weather'][0]['hourly'][5]['swellHeight_m'];
