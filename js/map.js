@@ -19,7 +19,7 @@ var beachData = {
 
 function initMap() {
     const map = new google.maps.Map(document.getElementById("map"), {
-        center: {lat: 54.2767272, lng: -8.5064695},
+        center: { lat: 54.2767272, lng: -8.5064695 },
         zoom: 9,
         restriction: {
             latLngBounds: {
@@ -34,21 +34,26 @@ function initMap() {
     map.addListener("center_changed", () => {
         $("#info").text("");
         $("#title").text("");
-      });
-
-
-    const image = {
-        url:
-            "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
-        // This marker is 20 pixels wide by 32 pixels high.
-        size: new google.maps.Size(20, 32),
-        // The origin for this image is (0, 0).
-        origin: new google.maps.Point(0, 0),
-        // The anchor for this image is the base of the flagpole at (0, 32).
-        anchor: new google.maps.Point(0, 32),
-    };
+    });
 
     for (const [key, value] of Object.entries(beachData)) {
+        var image = ""
+        if (value["swimming"] == true) {
+            image = {
+                url: "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
+                size: new google.maps.Size(20, 32),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(0, 32),
+            }
+        } else if (value["surfing"] == true) {
+            image = {
+                url: "https://dslr-ipf.org/ty2021/surfing.png",
+                size: new google.maps.Size(20, 32),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(0, 32),
+            }
+        }
+
         marker = new google.maps.Marker({
             position: value['location'],
             icon: image,
@@ -56,7 +61,7 @@ function initMap() {
             title: key,
         })
         content = "Beach is good for:";
-        if( value['swimming']){
+        if (value['swimming']) {
             content += " swimming";
         }
         infowindow = new google.maps.InfoWindow({
@@ -64,7 +69,7 @@ function initMap() {
         });
         marker.addListener("click", () => {
             infowindow.open(map, marker);
-            $('#title').html("<h3>"+key+"</h3>");
+            $('#title').html("<h3>" + key + "</h3>");
             $("#info").text(value['description']);
             getTemp(value['location']['lat'], value['location']['lng']);
         });
@@ -72,13 +77,13 @@ function initMap() {
 }
 
 
-function getTemp(lat, lng){
+function getTemp(lat, lng) {
 
-    jQuery.get("https://api.worldweatheronline.com/premium/v1/marine.ashx?key=2ab1ba821e484429b8785133212904&format=json&q="+lat+","+lng+"&num_of_days=1", function(data, status){
+    jQuery.get("https://api.worldweatheronline.com/premium/v1/marine.ashx?key=2ab1ba821e484429b8785133212904&format=json&q=" + lat + "," + lng + "&num_of_days=1", function(data, status) {
         var response = data;
         var maxTemp = response['data']['weather'][0]["maxtempC"];
         var am6Swell = response['data']['weather']['hourly'][2]['swellHeight_m'];
         var icon = "";
-        $('#title').html("<p>Max Temp"+maxTemp+"</p> <p>6am Swell: "+am6Swell+"</p>><img src="+icon+">");
-      });
+        $('#title').html("<p>Max Temp" + maxTemp + "</p> <p>6am Swell: " + am6Swell + "</p>><img src=" + icon + ">");
+    });
 }
