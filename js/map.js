@@ -400,7 +400,7 @@ function setupBeaches(){
 
     var beachContent = "";
     for (const [key, value] of Object.entries(beachData)) {
-        beachContent = beachContent + "<a href=\"#\"  onclick=\"panToBeach("+key+")\">>"+key+"</a>\n";
+        beachContent = beachContent + "<a href=\"#\"  onclick=\"panToBeach(\""+key+"\")\">"+key+"</a>\n";
     }
     jQuery('#beaches').html(beachContent);
 }
