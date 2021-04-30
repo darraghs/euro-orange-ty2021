@@ -1,6 +1,4 @@
 let map;
-var map;
-
 
 var beachData = {
     "Streedagh": { 
@@ -93,7 +91,7 @@ var beachData = {
 
 
 function initMap() {
-    map = new google.maps.Map(document.getElementById("map"), {
+    const map = new google.maps.Map(document.getElementById("map"), {
         center: {lat: 54.2767272, lng: -8.5064695},
         zoom: 9,
         restriction: {
@@ -421,5 +419,6 @@ function panToBeach(beach){
     getTemp(value['location']['lat'], value['location']['lng'], value['cafes']);
 
     var latLng = new google.maps.LatLng(value['location']['lat'], value['location']['lng']);
+    var map = new google.maps.Map(document.getElementById("map"));
     map.panTo(latLng);
 }
