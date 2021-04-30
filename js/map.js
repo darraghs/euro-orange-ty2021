@@ -394,3 +394,21 @@ function getTemp(lat, lng, cafes) {
     });
 
 }
+
+
+function setupBeaches(){
+
+    var beachContent = "";
+    for (const [key, value] of Object.entries(beachData)) {
+        beachContent = beachContent + "<a href=\"#\"  onclick=\"panToBeach("+key+")\">>"+key+"</a>\n";
+    }
+    $('#title').html(beachContent);
+}
+
+
+function panToBeach(beach){
+    var value = beachData[beach];
+    $('#title').html("<h3>" + beach + "</h3>");
+    $("#info").text(value['description']);
+    getTemp(value['location']['lat'], value['location']['lng'], value['cafes']);
+}
