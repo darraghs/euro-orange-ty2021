@@ -144,7 +144,13 @@ function initMap() {
             // infowindow.open(map, marker);
             $('#title').html("<h3>" + key + "</h3>");
             $("#info").text(value['description']);
-            getTemp(value['location']['lat'], value['location']['lng'], value['cafes']);
+            var cafe = "";
+            if ('cafes' in value) {
+                cafe = value['cafes'];
+            } else {
+                cafe = "No cafes/shops in the area";
+            }
+            getTemp(value['location']['lat'], value['location']['lng'], cafe);
         });
     }
 }
