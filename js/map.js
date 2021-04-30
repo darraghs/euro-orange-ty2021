@@ -402,7 +402,7 @@ function setupBeaches(){
     for (const [key, value] of Object.entries(beachData)) {
         beachContent = beachContent + "<a href=\"#\"  onclick=\"panToBeach("+key+")\">>"+key+"</a>\n";
     }
-    $('#title').html(beachContent);
+    jQuery('#beaches').html(beachContent);
 }
 
 
