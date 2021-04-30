@@ -417,8 +417,4 @@ function panToBeach(beach){
     $('#title').html("<h3>" + beach + "</h3>");
     $("#info").text(value['description']);
     getTemp(value['location']['lat'], value['location']['lng'], value['cafes']);
-
-    var latLng = new google.maps.LatLng(value['location']['lat'], value['location']['lng']);
-    var map = new google.maps.Map(document.getElementById("map"));
-    map.panTo(latLng);
 }
